@@ -88,7 +88,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\extension\userdefined.cpp" />
+    <ClCompile Include="..\extension\userdef_client.cpp" />
     <ClCompile Include="..\gen-cpp\ApiForward.cpp" />
     <ClCompile Include="..\gen-cpp\apiforward_constants.cpp" />
     <ClCompile Include="..\gen-cpp\apiforward_types.cpp" />
@@ -103,7 +103,7 @@
     <None Include="apifwrd.def" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\extension\userdefined.h" />
+    <ClInclude Include="..\extension\userdef_client.h" />
     <ClInclude Include="..\gen-cpp\ApiForward.h" />
     <ClInclude Include="..\gen-cpp\apiforward_constants.h" />
     <ClInclude Include="..\gen-cpp\apiforward_types.h" />

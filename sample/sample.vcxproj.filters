@@ -13,10 +13,72 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Source Files\gen-cpp">
+      <UniqueIdentifier>{053475d3-4731-4502-9357-40af4277ec13}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\gen-cpp">
+      <UniqueIdentifier>{5dcb21d4-480e-47ef-bd2a-734ca7f7b941}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\extension\userdef_server.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\gen-cpp\ApiForward.cpp">
+      <Filter>Source Files\gen-cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\gen-cpp\apiforward_constants.cpp">
+      <Filter>Source Files\gen-cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\gen-cpp\apiforward_types.cpp">
+      <Filter>Source Files\gen-cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\gen-cpp\SelfService.cpp">
+      <Filter>Source Files\gen-cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\gen-cpp\shared_constants.cpp">
+      <Filter>Source Files\gen-cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\gen-cpp\shared_types.cpp">
+      <Filter>Source Files\gen-cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\gen-cpp\userdefined_constants.cpp">
+      <Filter>Source Files\gen-cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\gen-cpp\userdefined_types.cpp">
+      <Filter>Source Files\gen-cpp</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\extension\userdef_server.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\gen-cpp\ApiForward.h">
+      <Filter>Header Files\gen-cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\gen-cpp\apiforward_constants.h">
+      <Filter>Header Files\gen-cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\gen-cpp\apiforward_types.h">
+      <Filter>Header Files\gen-cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\gen-cpp\SelfService.h">
+      <Filter>Header Files\gen-cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\gen-cpp\shared_constants.h">
+      <Filter>Header Files\gen-cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\gen-cpp\shared_types.h">
+      <Filter>Header Files\gen-cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\gen-cpp\userdefined_constants.h">
+      <Filter>Header Files\gen-cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\gen-cpp\userdefined_types.h">
+      <Filter>Header Files\gen-cpp</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
