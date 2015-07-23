@@ -46,7 +46,7 @@
  * prefix. i.e. shared.SharedObject
  */
 include "shared.thrift"
-include "selfdefined.thrift"
+include "extension/userdefined.thrift"
 
 
 /**
@@ -58,7 +58,7 @@ namespace cpp apiforward
  * Ahh, now onto the cool part, defining a service. Services just need a name
  * and can optionally inherit from another service using the extends keyword.
  */
-service ApiForward extends selfdefined.SelfService  {
+service ApiForward extends userdefined.SelfService  {
 
   /**
    * A method definition looks like C code. It has a return type, arguments,
