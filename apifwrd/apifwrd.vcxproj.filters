@@ -48,6 +48,9 @@
     <ClCompile Include="..\gen-cpp\userdefined_types.cpp">
       <Filter>Source Files\gen-cpp</Filter>
     </ClCompile>
+    <ClCompile Include="..\extension\userdefined.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="apifwrd.def">
@@ -78,6 +81,9 @@
     </ClInclude>
     <ClInclude Include="..\gen-cpp\userdefined_types.h">
       <Filter>Header Files\gen-cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\extension\userdefined.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
