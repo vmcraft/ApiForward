@@ -5,6 +5,10 @@
 #include <thrift/transport/TBufferTransports.h>
 #include "userdef_server.h"
 
+// Remove this if not necessary.
+#include "Shellapi.h"
+#pragma comment(lib, "shell32.lib")
+
 using namespace ::apache::thrift;
 using namespace ::apache::thrift::protocol;
 using namespace ::apache::thrift::transport;
@@ -22,8 +26,9 @@ class ApiForwardHandler : virtual public ApiForwardIf {
     // Add your hooking function here
     //
 
-    int32_t ShellAboutW(const std::string &) {
-        return 0;
+    int32_t ShellAboutW(const std::string& szApp) {
+        LPCWSTR test = (LPCWSTR) szApp.c_str();
+        return ::ShellAboutW(NULL, (LPCWSTR)szApp.c_str(), NULL, NULL);
     }
 };
 
