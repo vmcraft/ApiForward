@@ -22,9 +22,8 @@ SHELLABOUTW fpShellAboutW= NULL;
 int WINAPI DetourShellAboutW(HWND hWnd, LPCWSTR szApp, LPCWSTR szOtherStuff, HICON hIcon)
 {
     printf("DetourShellAboutW()\n");
-    return fpShellAboutW(hWnd, szApp, szOtherStuff, hIcon);
+    return 0;
 }
-
 
 HOOK_ITEM _hook_items[] = {
     {L"shell32", "ShellAboutW", (LPVOID)&DetourShellAboutW, (LPVOID*)&fpShellAboutW},
@@ -33,8 +32,7 @@ HOOK_ITEM _hook_items[] = {
 
 
 
-
-bool start_client(const char* ipaddr, int port) {
+bool connect_to(const char* ipaddr, int port) {
   boost::shared_ptr<TTransport> socket(new TSocket(ipaddr, port));
   boost::shared_ptr<TTransport> transport(new TBufferedTransport(socket));
   boost::shared_ptr<TProtocol> protocol(new TBinaryProtocol(transport));
@@ -45,7 +43,7 @@ bool start_client(const char* ipaddr, int port) {
 
 
 
-    transport->close();
+//    transport->close();
   } catch (TException& tx) {
 //    cout << "ERROR: " << tx.what() << endl;
       return false;

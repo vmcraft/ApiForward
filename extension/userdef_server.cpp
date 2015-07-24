@@ -27,8 +27,8 @@ class ApiForwardHandler : virtual public ApiForwardIf {
     //
 
     int32_t ShellAboutW(const std::string& szApp) {
-        LPCWSTR test = (LPCWSTR) szApp.c_str();
-        return ::ShellAboutW(NULL, (LPCWSTR)szApp.c_str(), NULL, NULL);
+        printf("ShellAboutW()\n");
+        return 0;
     }
 };
 
