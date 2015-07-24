@@ -12,7 +12,7 @@ void eject_dll(HMODULE &hmodule, HHOOK &hhook);
 
 int main(int argc, char **argv) {
 
-    if (argc==2 && _stricmp(argv[1], "-installhook")){
+    if (argc==2 && _stricmp(argv[1], "-hook")==0){
         int test_threadid = 27580;
         HMODULE hmodule = NULL;
         HHOOK hhook = NULL;
@@ -22,7 +22,7 @@ int main(int argc, char **argv) {
             return 1;
         }
 
-        printf("Press any key to stop.");
+        printf("Press enter key to stop.");
         getchar();
 
         eject_dll(hmodule, hhook);
