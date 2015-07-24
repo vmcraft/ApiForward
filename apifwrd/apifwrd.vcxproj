@@ -55,7 +55,7 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;APIFWRD_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
-      <AdditionalIncludeDirectories>$(BOOST);$(THRIFT)\lib\cpp\src;$(SolutionDir)gen-cpp;$(SolutionDir)extension;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(BOOST);$(THRIFT)\lib\cpp\src;$(SolutionDir)gen-cpp;$(SolutionDir)extension;$(SolutionDir)3rdparty\minhook-1.3.1\include;$(ProjectDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -75,7 +75,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;APIFWRD_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
-      <AdditionalIncludeDirectories>$(BOOST);$(THRIFT)\lib\cpp\src;$(SolutionDir)gen-cpp;$(SolutionDir)extension;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(BOOST);$(THRIFT)\lib\cpp\src;$(SolutionDir)gen-cpp;$(SolutionDir)extension;$(SolutionDir)3rdparty\minhook-1.3.1\include;$(ProjectDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -97,7 +97,8 @@
     <ClCompile Include="..\gen-cpp\shared_types.cpp" />
     <ClCompile Include="..\gen-cpp\userdefined_constants.cpp" />
     <ClCompile Include="..\gen-cpp\userdefined_types.cpp" />
-    <ClCompile Include="dllmain.c" />
+    <ClCompile Include="dllmain.cpp" />
+    <ClCompile Include="minhooklink.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="apifwrd.def" />
@@ -112,6 +113,7 @@
     <ClInclude Include="..\gen-cpp\shared_types.h" />
     <ClInclude Include="..\gen-cpp\userdefined_constants.h" />
     <ClInclude Include="..\gen-cpp\userdefined_types.h" />
+    <ClInclude Include="minhooklink.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

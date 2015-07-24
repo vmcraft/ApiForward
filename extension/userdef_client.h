@@ -1,11 +1,8 @@
-#include <Windows.h>
+#ifndef __USER_DEF_CLIENT_H
+#define __USER_DEF_CLIENT_H
 
-#ifdef __cplusplus
-extern "C" {
-#endif
+#include <Windows.h>
 
 bool start_client(const char* ipaddr, int port);
 
-#ifdef __cplusplus
-}
-#endif
+#endif //__USER_DEF_CLIENT_H

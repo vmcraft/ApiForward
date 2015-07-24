@@ -1,6 +1,7 @@
 #include <Windows.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include "minhooklink.h"
 
 
 #pragma comment(lib, "user32.lib")
@@ -19,6 +20,13 @@ BOOL APIENTRY DllMain( HMODULE hModule,
         }
 #endif
         printf("apifwrd.dll loaded.\n");
+
+        if (!start_hook()) {
+            printf("start_hook() failed.\n");
+            return FALSE;
+        }
+
+        printf("start_hook() successful.\n");
         break;
 
 	case DLL_THREAD_ATTACH:
@@ -28,9 +36,11 @@ BOOL APIENTRY DllMain( HMODULE hModule,
         break;
 
 	case DLL_PROCESS_DETACH:
+        stop_hook();
         printf("apifwrd.dll unloaded.\n");
 #ifdef _DEBUG
-		FreeConsole();
+        // Don't free to check messages to analyze after unloaded.
+//		FreeConsole();
 #endif
         break;
 	}

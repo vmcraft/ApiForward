@@ -21,9 +21,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="dllmain.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="..\gen-cpp\ApiForward.cpp">
       <Filter>Source Files\gen-cpp</Filter>
     </ClCompile>
@@ -49,6 +46,12 @@
       <Filter>Source Files\gen-cpp</Filter>
     </ClCompile>
     <ClCompile Include="..\extension\userdef_client.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="minhooklink.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="dllmain.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -83,6 +86,9 @@
       <Filter>Header Files\gen-cpp</Filter>
     </ClInclude>
     <ClInclude Include="..\extension\userdef_client.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="minhooklink.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
