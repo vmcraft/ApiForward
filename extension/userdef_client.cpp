@@ -13,7 +13,7 @@ int WINAPI DetourShellAboutW(HWND hWnd, LPCWSTR szApp, LPCWSTR szOtherStuff, HIC
         return _api->ShellAboutW(std::string(""));
     }
     else {
-        return _api->ShellAboutW(std::string((char*)szApp, wcslen(szApp)*sizeof(WCHAR)+sizeof(WCHAR));
+        return _api->ShellAboutW(std::string((char*)szApp, wcslen(szApp)*sizeof(WCHAR)+sizeof(WCHAR)));
     }
 }
 
