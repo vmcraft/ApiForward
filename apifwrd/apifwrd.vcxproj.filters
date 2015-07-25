@@ -57,6 +57,9 @@
     <ClCompile Include="thriftlink_client.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="apifwrd.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="apifwrd.def">
@@ -92,6 +95,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="thriftlink_client.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="apifwrd.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
