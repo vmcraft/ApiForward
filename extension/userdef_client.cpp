@@ -1,6 +1,12 @@
 #include "thriftlink_client.h"
 #include "minhooklink.h"
 
+// We will not hook the following processes forcely.
+char *_without_hook[] = {
+                    "sample.exe",
+                    NULL
+};
+
 
 // Define original function pointer
 int (WINAPI *fpShellAboutW)(HWND, LPCWSTR, LPCWSTR, HICON) = NULL;

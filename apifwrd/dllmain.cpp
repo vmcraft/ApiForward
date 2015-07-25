@@ -3,8 +3,10 @@
 #include <Windows.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include "apifwrd.h"
 
-#pragma comment(lib, "user32.lib")
+bool IsHookProcess(DWORD pid);
+
 
 BOOL APIENTRY DllMain( HMODULE hModule,
                        DWORD  ul_reason_for_call,
@@ -21,17 +23,22 @@ BOOL APIENTRY DllMain( HMODULE hModule,
 #endif
         printf("apifwrd.dll loaded.\n");
 
-        if (!thrift_connect("127.0.0.1", 3900)) {
-            printf("thrift_connect() failed.\n");
-            return FALSE;
+        if (IsHookProcess(GetCurrentProcessId())) {
+            if (!thrift_connect("127.0.0.1", 3900)) {
+                printf("thrift_connect() failed.\n");
+                return FALSE;
+            }
+
+            printf("thrift_connect() successful.\n");
+
+            if (!start_hook()) {
+                printf("start_hook() failed.\n");
+                return FALSE;
+            }
+
+            printf("start_hook() successful.\n");
         }
 
-        if (!start_hook()) {
-            printf("start_hook() failed.\n");
-            return FALSE;
-        }
-
-        printf("start_hook() successful.\n");
         break;
 
 	case DLL_THREAD_ATTACH:
@@ -41,7 +48,10 @@ BOOL APIENTRY DllMain( HMODULE hModule,
         break;
 
 	case DLL_PROCESS_DETACH:
-        stop_hook();
+        if (IsHookProcess(GetCurrentProcessId())) {
+            stop_hook();
+            printf("stop_hook()\n");
+        }
         printf("apifwrd.dll unloaded.\n");
 #ifdef _DEBUG
         // Don't free to check messages to analyze after unloaded.
@@ -54,7 +64,3 @@ BOOL APIENTRY DllMain( HMODULE hModule,
 
 
 
-int APIENTRY CALLBACK HelperHookProcForSetWindowsHookEx(int code, WPARAM wParam, LPARAM lParam)
-{
-    return CallNextHookEx(NULL, code, wParam, lParam);
-}
