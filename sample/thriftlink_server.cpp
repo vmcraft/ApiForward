@@ -19,6 +19,8 @@ bool thrift_server_start(int port) {
                            transportFactory,
                            protocolFactory);
 
+    printf("Starting server on port %d.\n", port);
+
     server.serve();
     return true;
 }

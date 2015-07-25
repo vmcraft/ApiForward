@@ -13,13 +13,12 @@ void eject_dll(HMODULE &hmodule, HHOOK &hhook);
 
 int main(int argc, char **argv) {
 
-    if (argc==3 && _stricmp(argv[1], "-hook")==0){
-        // RYAN_TEST
-        int test_threadid = atoi(argv[2]);
+    if (argc==3 && _stricmp(argv[1], "hook")==0){
+        int threadid = atoi(argv[2]);
         HMODULE hmodule = NULL;
         HHOOK hhook = NULL;
 
-        if (!inject_dll(hmodule, hhook, test_threadid)){
+        if (!inject_dll(hmodule, hhook, threadid)){
             printf("Injection failed.\n");
             return 1;
         }
@@ -30,9 +29,17 @@ int main(int argc, char **argv) {
         eject_dll(hmodule, hhook);
         return 0;
     }
+    else if ((argc==2||argc==3) && _stricmp(argv[1], "server")==0) {
+        int port = 3900;
+        if (argc==3) atoi(argv[2]);
+        thrift_server_start(port);
+        return 0;
+    }
 
-    thrift_server_start(3900);
-    return 0;
+    printf("Usage:\n");
+    printf(" %s hook thread_id\n", argv[0]);
+    printf(" %s server [port_number]\n", argv[0]);
+    return 1;
 }
 
 //
