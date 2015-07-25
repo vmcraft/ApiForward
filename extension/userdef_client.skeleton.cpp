@@ -15,6 +15,8 @@ int (WINAPI *fpShellAboutW)(HWND, LPCWSTR, LPCWSTR, HICON) = NULL;
 int WINAPI DetourShellAboutW(HWND hWnd, LPCWSTR szApp, LPCWSTR szOtherStuff, HICON hIcon)
 {
     printf("DetourShellAboutW()\n");
+    if (!ensure_connection()) return 0;
+    
     if (szApp==NULL) {
         return _api->ShellAboutW(std::string(""));
     }
