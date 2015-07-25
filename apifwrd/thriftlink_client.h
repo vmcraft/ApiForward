@@ -16,4 +16,5 @@ extern boost::shared_ptr<ApiForwardClient> _api;
 
 bool thrift_connect(const char* ipaddr, int port);
 void thrift_close();
+bool ensure_connection();
 

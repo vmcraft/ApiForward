@@ -51,6 +51,8 @@ BOOL APIENTRY DllMain( HMODULE hModule,
         if (IsHookProcess(GetCurrentProcessId())) {
             stop_hook();
             printf("stop_hook()\n");
+            thrift_close();
+            printf("thrift_close()\n");
         }
         printf("apifwrd.dll unloaded.\n");
 #ifdef _DEBUG
