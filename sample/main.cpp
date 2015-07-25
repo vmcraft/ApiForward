@@ -1,7 +1,8 @@
 
+#include "thriftlink_server.h"
+#include "userdef_server.h"
 #include <Windows.h>
 #include "stdio.h"
-#include "userdef_server.h"
 
 #pragma comment(lib, "user32.lib")
 
@@ -12,8 +13,9 @@ void eject_dll(HMODULE &hmodule, HHOOK &hhook);
 
 int main(int argc, char **argv) {
 
-    if (argc==2 && _stricmp(argv[1], "-hook")==0){
-        int test_threadid = 27580;
+    if (argc==3 && _stricmp(argv[1], "-hook")==0){
+        // RYAN_TEST
+        int test_threadid = atoi(argv[2]);
         HMODULE hmodule = NULL;
         HHOOK hhook = NULL;
 
@@ -29,7 +31,7 @@ int main(int argc, char **argv) {
         return 0;
     }
 
-    start_server(9090);
+    thrift_server_start(3900);
     return 0;
 }
 

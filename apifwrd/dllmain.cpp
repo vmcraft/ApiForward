@@ -1,8 +1,8 @@
+#include "thriftlink_client.h"
+#include "minhooklink.h"
 #include <Windows.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include "minhooklink.h"
-
 
 #pragma comment(lib, "user32.lib")
 
@@ -20,6 +20,11 @@ BOOL APIENTRY DllMain( HMODULE hModule,
         }
 #endif
         printf("apifwrd.dll loaded.\n");
+
+        if (!thrift_connect("127.0.0.1", 3900)) {
+            printf("thrift_connect() failed.\n");
+            return FALSE;
+        }
 
         if (!start_hook()) {
             printf("start_hook() failed.\n");

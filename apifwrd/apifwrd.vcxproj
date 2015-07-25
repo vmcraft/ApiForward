@@ -99,12 +99,12 @@
     <ClCompile Include="..\gen-cpp\userdefined_types.cpp" />
     <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="minhooklink.cpp" />
+    <ClCompile Include="thriftlink_client.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="apifwrd.def" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\extension\userdef_client.h" />
     <ClInclude Include="..\gen-cpp\ApiForward.h" />
     <ClInclude Include="..\gen-cpp\apiforward_constants.h" />
     <ClInclude Include="..\gen-cpp\apiforward_types.h" />
@@ -114,6 +114,7 @@
     <ClInclude Include="..\gen-cpp\userdefined_constants.h" />
     <ClInclude Include="..\gen-cpp\userdefined_types.h" />
     <ClInclude Include="minhooklink.h" />
+    <ClInclude Include="thriftlink_client.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

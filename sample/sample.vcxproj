@@ -54,13 +54,13 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(BOOST);$(THRIFT)\lib\cpp\src;$(SolutionDir)gen-cpp;$(SolutionDir)extension;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(BOOST);$(THRIFT)\lib\cpp\src;$(SolutionDir)gen-cpp;$(SolutionDir)extension;$(ProjectDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>libthrift.lib</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(BOOST)\lib32-msvc-10.0;$(SolutionDir)Debug-mt;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(BOOST)\lib32-msvc-10.0;$(SolutionDir)Debug-mt;$(THIRD_PARTY)\OpenSSL-Win32\lib\VC\static;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -72,7 +72,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(BOOST);$(THRIFT)\lib\cpp\src;$(SolutionDir)gen-cpp;$(SolutionDir)extension;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(BOOST);$(THRIFT)\lib\cpp\src;$(SolutionDir)gen-cpp;$(SolutionDir)extension;$(ProjectDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -84,7 +84,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\extension\userdef_server.cpp" />
     <ClCompile Include="..\gen-cpp\ApiForward.cpp" />
     <ClCompile Include="..\gen-cpp\apiforward_constants.cpp" />
     <ClCompile Include="..\gen-cpp\apiforward_types.cpp" />
@@ -94,6 +93,7 @@
     <ClCompile Include="..\gen-cpp\userdefined_constants.cpp" />
     <ClCompile Include="..\gen-cpp\userdefined_types.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="thriftlink_server.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\extension\userdef_server.h" />
@@ -105,6 +105,7 @@
     <ClInclude Include="..\gen-cpp\shared_types.h" />
     <ClInclude Include="..\gen-cpp\userdefined_constants.h" />
     <ClInclude Include="..\gen-cpp\userdefined_types.h" />
+    <ClInclude Include="thriftlink_server.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -24,9 +24,6 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\extension\userdef_server.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="..\gen-cpp\ApiForward.cpp">
       <Filter>Source Files\gen-cpp</Filter>
     </ClCompile>
@@ -50,6 +47,9 @@
     </ClCompile>
     <ClCompile Include="..\gen-cpp\userdefined_types.cpp">
       <Filter>Source Files\gen-cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="thriftlink_server.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -79,6 +79,9 @@
     </ClInclude>
     <ClInclude Include="..\gen-cpp\userdefined_types.h">
       <Filter>Header Files\gen-cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="thriftlink_server.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
