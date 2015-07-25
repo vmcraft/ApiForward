@@ -12,7 +12,6 @@ There are example skeleton files in 'extension' directory.
 It shows how to forward 'shell32!ShellAbout' API to another machine.
 
 ## Generating Apache Thrift files
-"'
 > thrift-0.9.2.exe -r -gen cpp apiforward.thrift
 
 
