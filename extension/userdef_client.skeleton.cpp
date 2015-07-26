@@ -8,6 +8,8 @@ char *_without_hook[] = {
 };
 
 bool _dont_hook_if_connection_failed = true;
+std::string _server_ip = "127.0.0.1";
+int _server_port = 3900;
 
 
 // Define original function pointer
