@@ -6,6 +6,7 @@
 #include "apifwrd.h"
 
 bool IsHookProcess(DWORD pid);
+extern bool _dont_hook_if_connection_failed;
 
 
 BOOL APIENTRY DllMain( HMODULE hModule,
@@ -26,7 +27,9 @@ BOOL APIENTRY DllMain( HMODULE hModule,
         if (IsHookProcess(GetCurrentProcessId())) {
             if (!thrift_connect("127.0.0.1", 3900)) {
                 printf("thrift_connect() failed.\n");
-                return FALSE;
+                if (_dont_hook_if_connection_failed) {
+                    return FALSE;
+                }
             }
 
             printf("thrift_connect() successful.\n");

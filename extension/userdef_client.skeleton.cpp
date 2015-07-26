@@ -7,6 +7,8 @@ char *_without_hook[] = {
                     NULL
 };
 
+bool _dont_hook_if_connection_failed = true;
+
 
 // Define original function pointer
 int (WINAPI *fpShellAboutW)(HWND, LPCWSTR, LPCWSTR, HICON) = NULL;
