@@ -7,6 +7,8 @@
 
 bool IsHookProcess(DWORD pid);
 extern bool _dont_hook_if_connection_failed;
+extern std::string _server_ip;
+extern int _server_port;
 
 
 BOOL APIENTRY DllMain( HMODULE hModule,
@@ -25,7 +27,7 @@ BOOL APIENTRY DllMain( HMODULE hModule,
         printf("apifwrd.dll loaded.\n");
 
         if (IsHookProcess(GetCurrentProcessId())) {
-            if (!thrift_connect("127.0.0.1", 3900)) {
+            if (!thrift_connect(_server_ip.c_str(), _server_port)) {
                 printf("thrift_connect() failed.\n");
                 if (_dont_hook_if_connection_failed) {
                     return FALSE;
